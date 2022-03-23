@@ -1,9 +1,10 @@
 name: Format C#
+
 on:
   push:
-  branches:
-    - "**"
-
+    branches:
+      - "**"
+  
   workflow_dispatch:
 
 jobs:
