@@ -265,7 +265,7 @@ namespace Nekoyume.Game
 
         private static void OnRPCAgentRetryEnded(RPCAgent rpcAgent)
         {
-            var widget = (Widget) Widget.Find<DimmedLoadingScreen>();
+            var widget = (Widget)Widget.Find<DimmedLoadingScreen>();
             if (widget.IsActive())
             {
                 widget.Close();
@@ -285,7 +285,7 @@ namespace Nekoyume.Game
 
             var needToBackToMain = false;
             var showLoadingScreen = false;
-            var widget = (Widget) Widget.Find<DimmedLoadingScreen>();
+            var widget = (Widget)Widget.Find<DimmedLoadingScreen>();
             if (widget.IsActive())
             {
                 widget.Close();
@@ -351,7 +351,7 @@ namespace Nekoyume.Game
 
             var needToBackToMain = false;
             var showLoadingScreen = false;
-            var widget = (Widget) Widget.Find<DimmedLoadingScreen>();
+            var widget = (Widget)Widget.Find<DimmedLoadingScreen>();
             if (widget.IsActive())
             {
                 widget.Close();
@@ -819,7 +819,7 @@ namespace Nekoyume.Game
                     Message = msg,
                     Timestamp = DateTime.UtcNow
                 };
-                var request = new PutLogEventsRequest(groupName, streamName, new List<InputLogEvent> {ie});
+                var request = new PutLogEventsRequest(groupName, streamName, new List<InputLogEvent> { ie });
                 if (!string.IsNullOrEmpty(token))
                 {
                     request.SequenceToken = token;
