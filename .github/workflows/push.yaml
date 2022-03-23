@@ -1,7 +1,11 @@
 name: Format C#
 on:
-  pull_request:
-    types: [opened, synchronize]
+  push:
+  branches:
+    - "**"
+
+  workflow_dispatch:
+
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
@@ -26,7 +30,7 @@ jobs:
         id: check_folder
         uses: andstor/file-existence-action@v1.0.1
         with:
-          files: "./Assets/Scripts/"
+          files: "./Example/Assets/Scripts/"
 
       - name: Install dotnet-format
         if: "!contains(steps.log.outputs.message, 'skip ci') && steps.check_folder.outputs.files_exists == 'true'"
@@ -39,7 +43,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           action: "check"
-          folder: ./Assets/Scripts
+          folder: ./Example/Assets/Scripts
           fail-fast: false
 
       - name: Run format
@@ -48,7 +52,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           action: "fix"
-          folder: ./Assets/Scripts
+          folder: ./Example/Assets/Scripts
 
       - name: Commit files
         if: steps.check.outputs.has-changes == 'true'
