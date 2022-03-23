@@ -17,4 +17,4 @@ jobs:
       - name: Unity Auto Format
         uses: tyirvine/Unity-Actions-Autoformat@1.0.6
         with:
-          path: ./Example/Assets/Scripts/
+          path: ./Assets/Scripts/
