@@ -23,4 +23,4 @@ jobs:
         with:
           action: "fix"
         
-      - run: /home/runner/.dotnet/dotnet format --check
+      - run: dotnet format Algorithm.sln
