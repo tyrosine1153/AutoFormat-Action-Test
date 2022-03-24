@@ -22,3 +22,5 @@ jobs:
         uses: xt0rted/dotnet-format@v1
         with:
           action: "fix"
+        
+      - run: /home/runner/.dotnet/dotnet format --check
