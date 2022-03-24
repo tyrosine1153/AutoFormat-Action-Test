@@ -6,21 +6,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+      
+      - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 6.0.x
-
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
-
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
-
-      - name: Run dotnet format
-        uses: xt0rted/dotnet-format@v1
-        with:
-          action: "fix"
-        
-      - run: dotnet format Algorithm.sln
+            dotnet-version: 3.1.101
+      - uses: xt0rted/dotnet-format-problem-matcher@v1
+      - run: dotnet tool install -g dotnet-format
+      - run: dotnet-format --dry-run
